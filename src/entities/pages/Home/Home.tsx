@@ -5,7 +5,7 @@ const ListContainer = loadable(() => import ('../../containers/ToDoListContainer
 
 
 const Home: React.FC = () => {
-  return ListContainer()
+  return <ListContainer />
 }
 
 export default Home;

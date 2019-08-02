@@ -1,6 +1,5 @@
 import React from 'react';
-import Item from './Item';
-import Wrapper from './Wrapper';
+import { Item, Wrapper } from './styled';
 import { iItem } from '../../../domain/iItem';
 
 const ListItem = (props: iItem) => {

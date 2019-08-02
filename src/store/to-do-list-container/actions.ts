@@ -1,4 +1,4 @@
-import { LOAD_DATA_SUCCESS, LOAD_DATA_ERROR } from "./constants";
+import { LOAD_DATA_SUCCESS, LOAD_DATA_ERROR, ERASE_DATA } from "./constants";
 
 const dataLoaded = (data: Object) => {
   return {
@@ -14,6 +14,19 @@ const dataLoadingError = (error: Error) => {
   };
 };
 
+export const eraseData = () => {
+  return {
+    type: ERASE_DATA
+  };
+};
+
+export const getData = () => {
+  return function(dispatch: any) {
+    dispatch(dataLoaded(data));
+  };
+};
+
+//mock of service
 const data = Array(20)
   .fill(0)
   .map((el, idx) => {
@@ -24,16 +37,10 @@ const data = Array(20)
     };
   });
 
-export const getData = () => {
-  return function(dispatch: any) {
-    dispatch(dataLoaded(data));
-  };
-};
-
 /*
 export const getData = () => {
   return function (dispatch) {
-    service(get)(endpoint)
+    service.get(endpoint)
       .then(data => {
         dispatch(dataLoaded(data))
       )}
@@ -41,5 +48,19 @@ export const getData = () => {
         dispatch(dataLoadingError(error))
       })
   }
+}
+
+
+export const getData = () => {
+  // We can invert control here by returning a function - the "thunk".
+  // When this function is passed to `dispatch`, the thunk middleware will intercept it,
+  // and call it with `dispatch` and `getState` as arguments. 
+  // This gives the thunk function the ability to run some logic, and still interact with the store.
+  (dispatch) => {
+    service.get(endpoint)
+    .then(
+      data => dispatch(dataLoaded(data)),
+      error => dispatch(dataLoadingError(error))
+    )}
 }
 */

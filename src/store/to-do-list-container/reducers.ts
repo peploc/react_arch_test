@@ -1,20 +1,10 @@
 import produce from "immer";
-import { LOAD_DATA_SUCCESS, LOAD_DATA_ERROR } from "./constants";
+import { LOAD_DATA_SUCCESS, LOAD_DATA_ERROR, ERASE_DATA } from "./constants";
 import { iToDoListState } from "../../domain/iStates";
-
-const data = Array(20)
-  .fill(0)
-  .map((el, idx) => {
-    return {
-      id: idx,
-      title: `hola${idx * Math.random()}`,
-      message: `diocane${idx * Math.random()}`
-    };
-  });
 
 export const initialState: iToDoListState = {
   error: false,
-  data: data,
+  data: false
 };
 
 const toDoListReducer = (state = initialState, action: any) =>
@@ -26,6 +16,10 @@ const toDoListReducer = (state = initialState, action: any) =>
 
       case LOAD_DATA_ERROR:
         draft.error = action.error;
+        break;
+
+      case ERASE_DATA:
+        draft.data = false;
         break;
     }
   });

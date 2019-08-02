@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.li`
+export const Item = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+`;
+
+export const Wrapper = styled.li`
   width: 100%;
   height: 3em;
   display: flex;
@@ -11,5 +19,3 @@ const Wrapper = styled.li`
     border-top: none;
   }
 `;
-
-export default Wrapper;
