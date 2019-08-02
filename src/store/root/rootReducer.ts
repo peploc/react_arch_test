@@ -1,9 +1,13 @@
 import { combineReducers } from "redux";
 import { connectRouter } from 'connected-react-router'
-import history from '../history/history';
+import browserHistory from '../history/history';
+import appReducer from '../app/reducers';
+import toDoListReducer from '../to-do-list-container/reducers';
 
-const router = connectRouter(history)
+const history = connectRouter(browserHistory)
 
 export default combineReducers({ 
-  router
+  router: history,
+  appReducer,
+  toDoListReducer
 });

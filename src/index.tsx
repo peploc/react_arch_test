@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import history from "./store/history/history";
 import { store } from "./store/root/store";
 import App from "./app/App";
-import ErrorBoundary from "./utils/ErrorBoundary/ErrorBoundary";
+import ErrorBoundary from "./utils/ErrorBoundary";
 
 const rootElement = document.getElementById("root");
 
