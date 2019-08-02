@@ -4,10 +4,10 @@ import browserHistory from '../history/history';
 import appReducer from '../app/reducers';
 import toDoListReducer from '../to-do-list-container/reducers';
 
-const history = connectRouter(browserHistory)
+const router = connectRouter(browserHistory)
 
 export default combineReducers({ 
-  router: history,
+  router,
   appReducer,
   toDoListReducer
 });

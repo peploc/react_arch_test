@@ -3,7 +3,7 @@ import Item from './Item';
 import Wrapper from './Wrapper';
 import { iItem } from '../../../domain/iItem';
 
-function ListItem(props: iItem) {
+const ListItem = (props: iItem) => {
   return (
     <Wrapper>
       <Item>{props.title} - {props.message}</Item>

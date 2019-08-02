@@ -4,11 +4,11 @@ import Wrapper from './Wrapper';
 import ListItem from '../ToDoItem/index';
 import { iItem } from '../../../domain/iItem';
 
-function List(props: iItem[] | null) {
+const List = (props: any) => {
   let content;
 
-  if (props) {
-    content = props.map((item: iItem) => (
+  if (props.data) {
+    content = props.data.map((item: iItem) => (
       <ListItem key={`item-${item.id}`} {...item} />
     ));
   } else {
