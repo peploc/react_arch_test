@@ -7,16 +7,19 @@ import history from "./store/history/history";
 import { store } from "./store/root/store";
 import App from "./app/App";
 import ErrorBoundary from "./utils/ErrorBoundary";
+import { LanguageProvider } from "./utils/LanguageProvider";
 
 const rootElement = document.getElementById("root");
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <ErrorBoundary>
-        <App />
-      </ErrorBoundary>
-    </ConnectedRouter>
+    <LanguageProvider>
+      <ConnectedRouter history={history}>
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
+      </ConnectedRouter>
+    </LanguageProvider>
   </Provider>,
   rootElement
 );

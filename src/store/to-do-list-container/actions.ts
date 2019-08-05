@@ -7,6 +7,7 @@ const dataLoaded = (data: Object) => {
   };
 };
 
+// eslint-disable-next-line
 const dataLoadingError = (error: Error) => {
   return {
     type: LOAD_DATA_ERROR,

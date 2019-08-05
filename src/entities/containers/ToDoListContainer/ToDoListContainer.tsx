@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { makeSelectData } from "../../../store/to-do-list-container/selectors";
 import { Button } from "../../components/Button/Button";
 import { getData, eraseData } from '../../../store/to-do-list-container/actions';
+import { FormattedMessage } from "react-intl";
 
 const ListContainer = () => {
   const data: any = useSelector(makeSelectData());
@@ -14,8 +15,8 @@ const ListContainer = () => {
   return (
     <React.Fragment>
       <List data={data} />
-      <Button color='green' label='LOAD' func={() => loadData()}/>
-      <Button color='red' label='ERASE' func={() => deleteData()}/>
+      <Button color='green' label={<FormattedMessage id='button.load.label'/>} func={() => loadData()}/>
+      <Button color='red' label={<FormattedMessage id='button.erase.label'/>} func={() => deleteData()}/>
     </React.Fragment>
   );
 };
