@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
-import Home from '../entities/pages/Home/Home';
+import { Switch } from 'react-router-dom';
+import { routes } from '../config/routes.config';
+import { RoutePath } from '../entities/components/RoutePath/RoutePath';
 
 const App: React.FC = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Home} />
+      {
+        routes.map((route: any, index: number) => <RoutePath key={index} {...route} />)
+      }
     </Switch>
   );
 };
