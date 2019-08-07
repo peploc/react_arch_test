@@ -1,12 +1,5 @@
 import { LOAD_DATA_SUCCESS, LOAD_DATA_ERROR, ERASE_DATA } from "./constants";
 
-const dataLoaded = (data: Object) => {
-  return {
-    type: LOAD_DATA_SUCCESS,
-    data
-  };
-};
-
 // eslint-disable-next-line
 const dataLoadingError = (error: Error) => {
   return {
@@ -21,22 +14,23 @@ export const eraseData = () => {
   };
 };
 
-export const getData = () => {
-  return function(dispatch: any) {
-    dispatch(dataLoaded(data));
-  };
-};
+export const getData = () => (dispatch: any) => {
+  //mock of service
+  const data = Array(20)
+    .fill(0)
+    .map((el, idx) => {
+      return {
+        id: idx,
+        title: `hola${idx * Math.random()}`,
+        message: `diocane${idx * Math.random()}`
+      };
+    });
 
-//mock of service
-const data = Array(20)
-  .fill(0)
-  .map((el, idx) => {
-    return {
-      id: idx,
-      title: `hola${idx * Math.random()}`,
-      message: `diocane${idx * Math.random()}`
-    };
+  dispatch({
+    type: LOAD_DATA_SUCCESS,
+    data
   });
+};
 
 /*
 export const getData = () => {
